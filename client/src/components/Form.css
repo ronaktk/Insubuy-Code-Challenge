@@ -79,6 +79,7 @@ body {
 }
 .get_quotes {
   background: #eb7f33;
+  margin-top: 1.75em;
   text-transform: uppercase;
   color: #fff;
 }

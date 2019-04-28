@@ -3,12 +3,12 @@ import React from "react"
 const Select = props => {
   return (
     <div className="col_half">
-      <label for={props.name}> {props.title} </label>
+      <label htmlFor={props.name}> {props.title} </label>
       <select
         id={props.name}
         name={props.name}
         value={props.value}
-        onChange={props.handleChange}
+        onChange={props.onChange}
       >
         <option value="" disabled>
           {props.placeholder}
