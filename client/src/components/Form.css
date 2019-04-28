@@ -1,0 +1,94 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1em;
+	background: #f2f2f2;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+.form_wrapper {
+	background:#fff;
+	width: 800px;
+  max-width: 100%;
+  margin: 3.75em auto;
+	box-sizing: border-box;
+	padding: 1em;
+	position: relative;
+}
+.form_container {
+  margin: 1em 2em 5em;
+	padding: 1em;
+	border: 1px solid #ccc;
+}
+.form_wrapper .form_header {
+  display: flex;
+	text-align: center;
+	margin: -1em -1em 1em;
+	padding: 1em 0;
+  border-bottom: 1px solid #ccc;
+}
+.form_wrapper h3 {
+	font-size: 1.1em;
+	font-weight: normal;
+	line-height: 1.5em;
+	margin-left: 20px;
+}
+.form_wrapper .row {
+	margin: 10px -15px;
+}
+.form_wrapper .row > div {
+	padding: 0 15px;
+	box-sizing: border-box;
+}
+.form_wrapper .col_half {
+	width: 50%;
+	float: left;
+}
+.form_wrapper label {
+	display: block;
+	margin: 0 0 5px;
+}
+.form_wrapper .input_field {
+  position: relative;
+  display: flex;
+}
+.form_wrapper input[type="text"], .form_wrapper select, .form_wrapper input[type="number"] {
+	width: 100%;
+  padding: 10px;	
+}
+
+.form_wrapper select {
+  height: 40px;
+}
+
+.form_wrapper input[type="submit"] {
+	background:#f5ba1a;
+	height: 50px;
+	line-height: 50px;
+	width: 100%;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	font-size: 1.2em;
+}
+.form_wrapper input[type="submit"]:hover, .form_wrapper input[type="submit"]:focus {
+	background: #daa106;
+}
+@media (max-width: 600px) {
+.form_wrapper .col_half {
+	width: 100%;
+	float: none;
+}
+.form_wrapper label {
+	margin: 10px 0;
+}
+}
