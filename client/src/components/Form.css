@@ -67,16 +67,26 @@ body {
 .form_wrapper select {
   height: 40px;
 }
-.form_wrapper input[type="submit"] {
-  background:#f5ba1a;
+
+.form_wrapper button {
   height: 50px;
   line-height: 50px;
   width: 100%;
   border: none;
   outline: none;
   cursor: pointer;
-  color: #fff;
   font-size: 1.2em;
+}
+.get_quotes {
+  background: #eb7f33;
+  text-transform: uppercase;
+  color: #fff;
+}
+.reset {
+  background: #fff;
+  color: blue;
+  font-style: italic;
+  text-decoration: underline;
 }
 .form_wrapper input[type="submit"]:hover, .form_wrapper input[type="submit"]:focus {
   background: #daa106;

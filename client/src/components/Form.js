@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Select from './Select'
+import Button from './Button'
 import './Form.css'
 
 class Form extends Component {
@@ -97,7 +98,17 @@ class Form extends Component {
                 </div>
               </div>
 
-              
+              {/* Get Quotes button */}
+              <Button 
+                title={"Get Quotes"}
+                className="get_quotes"
+              />
+
+              {/* Reset button */}
+              <Button
+                title={"Reset"}
+                className="reset"
+              />
 
           </form>
         </div>
