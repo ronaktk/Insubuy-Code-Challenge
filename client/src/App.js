@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Form from './components/Form'
+import Results from './components/Results'
 
 import './App.css'
 
@@ -9,6 +10,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Form}/>
+        <Route path="/results" component={Results}/>
       </Switch>
     </BrowserRouter>
   )

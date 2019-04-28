@@ -68,6 +68,7 @@ class Form extends Component {
                   value={this.state.age}
                   placeholder="Choose your age"
                   title="Age"
+                  onKeyPress={this.onKeyPress}
                   onChange={this.handleInput}
                 />
               </div>
@@ -77,7 +78,14 @@ class Form extends Component {
                 <div className="col_half">
                   <label htmlFor="travel_dates">Travel Dates (mm/dd/yyyy)</label>
                   <div className="input_field">
-      
+                    <Input
+                     type="date"
+                     placeholder="Start Date"
+                    />
+                    <Input
+                     type="date"
+                     placeholder="End Date"
+                    />
                   </div>
                 </div>
                 {/* Citizenship input field */}
@@ -85,9 +93,8 @@ class Form extends Component {
                   type="text"
                   name="citizenship"
                   value={this.state.citizenship}
+                  title="Citizenship"
                   placeholder="Choose your Country of Citizenship"
-                  title="Enter a valid input"
-                  onChange={this.handleInput}
                 />
               </div>
 
@@ -99,7 +106,6 @@ class Form extends Component {
                   value={this.state.mailing_state}
                   placeholder="Choose State"
                   title="Mailing State"
-                  onChange={this.handleInput}
                 />
               </div>
 
