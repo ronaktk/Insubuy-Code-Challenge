@@ -12,7 +12,8 @@ class Results extends Component {
   state = {
     quotes: [],
     toggle: false,
-    sortByPrice: 'desc'
+    sortByPrice: 'desc',
+    sortByName: 'asc'
   }
 
   componentDidMount() {
@@ -51,7 +52,22 @@ class Results extends Component {
         sortByPrice: 'desc'
       })
     }
-    
+  }
+
+  sortByName() {
+    if(this.state.sortByName === 'asc') {
+      res = this.state.quotes.sort((a,b) => a.name.localeCompare(b.name))
+      this.setState({
+        quotes: res,
+        sortByName: 'desc'
+      })
+    } else {
+      res = this.state.quotes.sort((a, b) => b.name.localeCompare(a.name))
+      this.setState({
+        quotes: res,
+        sortByName: 'asc'
+      })
+    }
   }
 
   render() {
@@ -61,6 +77,11 @@ class Results extends Component {
           <Button 
           onClick={this.sortByPrice.bind(this)}
           title="Sort by Price"
+          />
+
+          <Button 
+          onClick={this.sortByName.bind(this)}
+          title="Sort by Name"
           />
           
           <Button 
