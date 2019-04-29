@@ -11,9 +11,11 @@ class Results extends Component {
 
   state = {
     quotes: [],
+    all: [],
     toggle: false,
     sortByPrice: 'desc',
-    sortByName: 'asc'
+    sortByName: 'asc',
+    bestSellers: false
   }
 
   componentDidMount() {
@@ -25,7 +27,8 @@ class Results extends Component {
     .then(res => {
       console.log(res.data)
       this.setState({
-        quotes: res.data.quotes
+        quotes: res.data.quotes,
+        all: res.data.quotes
       })
     })
     .catch(err => console.log(err))
@@ -54,6 +57,12 @@ class Results extends Component {
     }
   }
 
+  showAll() {
+    this.setState({
+      quotes: this.state.all
+    })
+  }
+
   sortByName() {
     if(this.state.sortByName === 'asc') {
       res = this.state.quotes.sort((a,b) => a.name.localeCompare(b.name))
@@ -70,6 +79,13 @@ class Results extends Component {
     }
   }
 
+  findBestSellers() {
+    res = this.state.quotes.filter(quote => quote.bestSellers)
+    this.setState({
+      quotes: res
+    })
+  }
+
   render() {
     return(
       <Fragment>
@@ -82,6 +98,16 @@ class Results extends Component {
           <Button 
           onClick={this.sortByName.bind(this)}
           title="Sort by Name"
+          />
+
+          <Button 
+          onClick={this.findBestSellers.bind(this)}
+          title="Best Sellers"
+          />
+
+          <Button 
+          onClick={this.showAll.bind(this)}
+          title="Show All"
           />
           
           <Button 
