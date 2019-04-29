@@ -20,24 +20,22 @@ body {
   max-width: 100%;
   margin: 3.75em auto;
   box-sizing: border-box;
-  padding: 1em;
   position: relative;
 }
 .form_container {
-  margin: 1em 2em 5em;
+  /*margin: 1em 2em 5em;*/
   padding: 1em;
   border: 1px solid #ccc;
 }
 .form_wrapper .form_header {
   display: flex;
   text-align: center;
-  margin: -1em -1em 1em;
-  padding: 1em 0;
   border-bottom: 1px solid #ccc;
 }
 .form_wrapper h3 {
   font-size: 1.1em;
-  font-weight: normal;
+  font-weight: bold;
+  color: blue;
   line-height: 1.5em;
   margin-left: 20px;
 }
@@ -64,10 +62,12 @@ body {
   width: 100%;
   padding: 10px;	
 }
+.form_wrapper input[type="date"] {
+  margin: 0;
+}
 .form_wrapper select {
   height: 40px;
 }
-
 .form_wrapper button {
   height: 50px;
   line-height: 50px;

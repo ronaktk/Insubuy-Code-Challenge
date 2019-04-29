@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
 import Quote from './Quote'
-import Button from './Button';
+import Button from './Button'
+import Select from './Select'
 
 const url = "http://localhost:8080/quotes/"
 
@@ -12,10 +13,16 @@ class Results extends Component {
   state = {
     quotes: [],
     all: [],
+    policy_max: '',
+    section: '',
+    type: '',
     toggle: false,
     sortByPrice: 'desc',
     sortByName: 'asc',
-    bestSellers: false
+    bestSellers: false,
+    policy_max_options: [50,100,250,500],
+    section_options: ['Travel Medical','International Travel Medical','Student Medical','J1 Medical'],
+    type_options: ['Comprehensive','Fixed']
   }
 
   componentDidMount() {
@@ -59,7 +66,10 @@ class Results extends Component {
 
   showAll() {
     this.setState({
-      quotes: this.state.all
+      quotes: this.state.all,
+      policy_max: '',
+      type: '',
+      section: ''
     })
   }
 
@@ -86,6 +96,32 @@ class Results extends Component {
     })
   }
 
+  filterByPolicy(e) {
+    res = this.state.all.sort((b, a) => b.price - a.price)
+    res = this.state.all.filter(quote => quote.price < e.target.value)
+    this.setState({
+      quotes: res,
+      policy_max: e.target.value
+    })
+  }
+
+  filterBySection(e) {
+    res = this.state.all.filter(quote => quote.section === e.target.value)
+    this.setState({
+      quotes: res,
+      section: e.target.value
+    })
+  }
+
+  filterByType(e) {
+    res = this.state.all.filter(quote => quote.type === e.target.value)
+    this.setState({
+      quotes: res,
+      type: e.target.value
+    })
+  }
+  
+
   render() {
     return(
       <Fragment>
@@ -98,6 +134,30 @@ class Results extends Component {
           <Button 
           onClick={this.sortByName.bind(this)}
           title="Sort by Name"
+          />
+
+          <Select 
+            name={"policy_max"}
+            options={this.state.policy_max_options}
+            value={this.state.policy_max}
+            placeholder={"Filter by Policy"}
+            onChange={this.filterByPolicy.bind(this)}
+          />
+
+          <Select 
+            name={"type"}
+            options={this.state.type_options}
+            value={this.state.type}
+            placeholder={"Filter by Type"}
+            onChange={this.filterByType.bind(this)}
+          />
+
+          <Select 
+            name={"section"}
+            options={this.state.section_options}
+            value={this.state.section}
+            placeholder={"Filter by Section"}
+            onChange={this.filterBySection.bind(this)}
           />
 
           <Button 
@@ -117,22 +177,22 @@ class Results extends Component {
           
         </div>
         
-          <div className={this.state.toggle ? "container" : "grid"}>
-          {
-            this.state.quotes.map(quote => (
-              <Quote 
-              key={quote.id}
-              price={quote.price}
-              name={quote.name}
-              description={quote.description}
-              type={quote.type}
-              section={quote.section}
-              bestSellers={quote.bestSellers}
-              />
-            ))
-          }
-        </div>
-      </Fragment>
+        <div className={this.state.toggle ? "container" : "grid"}>
+        {
+          this.state.quotes.map(quote => (
+            <Quote 
+            key={quote.id}
+            price={quote.price}
+            name={quote.name}
+            description={quote.description}
+            type={quote.type}
+            section={quote.section}
+            bestSellers={quote.bestSellers}
+            />
+          ))
+        }
+      </div>
+    </Fragment>
     )
   }
 }

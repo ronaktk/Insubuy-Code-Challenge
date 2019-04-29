@@ -10,7 +10,7 @@ class Form extends Component {
   state = {
     policy_max: '',
     age: '',
-    start_date: '',
+    start_date: new Date(),
     end_date: '',
     citizenship: '',
     mailing_state: ''
@@ -38,6 +38,8 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    //form validation
+    window.location = '/results'
   }
 
   render() { 
@@ -53,23 +55,27 @@ class Form extends Component {
             <div className="row clearfix">
               {/* Policy Maximum input field */}
                 <Select
-                  title={"Policy Maximum"}
+                  label={"Policy Maximum"}
                   name={"policy_max"}
                   options={this.state.policy_max_options}
                   value={this.state.policy_max}
                   placeholder={"Choose your policy maximum"}
                   onChange={this.handleInput}
+                  required={"true"}
                 />
 
                 {/* Age input field */}
                 <Input 
                   type="text"
                   name="age"
+                  label="Age"
                   value={this.state.age}
                   placeholder="Choose your age"
-                  title="Age"
+                  title="Age must be less than 100 or Enter a 4-digit year."
                   onKeyPress={this.onKeyPress}
                   onChange={this.handleInput}
+                  required={"true"}
+                  pattern="(^[1-9]$|^[1-9][0-9]$|^(100)$)|(^(19|20)\d{2}$)"
                 />
               </div>
 
@@ -81,20 +87,28 @@ class Form extends Component {
                     <Input
                      type="date"
                      placeholder="Start Date"
+                     value={this.state.start_date}
+                     onChange={this.handleInput}
                     />
                     <Input
                      type="date"
                      placeholder="End Date"
+                     value={this.state.end_date}
+                     onChange={this.handleInput}
                     />
                   </div>
                 </div>
                 {/* Citizenship input field */}
                 <Input 
                   type="text"
+                  label="Citizenship"
                   name="citizenship"
                   value={this.state.citizenship}
-                  title="Citizenship"
+                  title="Should not contain numbers or special characters."
                   placeholder="Choose your Country of Citizenship"
+                  onChange={this.handleInput}
+                  required={"true"}
+                  pattern="^[a-zA-Z ]*$"
                 />
               </div>
 
@@ -102,10 +116,14 @@ class Form extends Component {
                 {/* Mailing State input field */}
                 <Input 
                   type="text"
+                  label="Mailing State"
                   name="mailing_state"
                   value={this.state.mailing_state}
                   placeholder="Choose State"
-                  title="Mailing State"
+                  title="Should not contain numbers or special characters."
+                  onChange={this.handleInput}
+                  required={"true"}
+                  pattern="^[a-zA-Z ]*$"
                 />
               </div>
 
@@ -114,7 +132,7 @@ class Form extends Component {
                 type="submit"
                 title={"Get Quotes"}
                 className="get_quotes"
-                onClick={this.handleSubmit}
+                
               />
 
               {/* Reset button */}

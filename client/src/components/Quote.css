@@ -26,13 +26,13 @@ body {
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-top: 30px;
   margin-right: 30px;
 }
-.header button {
+.header button, .header select, .header div {
+  font-size: 15px;
   padding: 15px;
-  border: 1px dashed #333;
 }
 .quote-plan {
   background-color: #ffffff;

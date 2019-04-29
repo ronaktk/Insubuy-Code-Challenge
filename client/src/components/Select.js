@@ -1,19 +1,24 @@
 import React from "react"
 
 const Select = props => {
+
+  const { name, label, value, onChange, placeholder, options, required } = props
+
   return (
     <div className="col_half">
-      <label htmlFor={props.name}> {props.title} </label>
+      <label htmlFor={name}> {label} </label>
       <select
-        id={props.name}
-        name={props.name}
-        value={props.value}
-        onChange={props.onChange}
+        id={name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        required={required}
       >
         <option value="" disabled>
-          {props.placeholder}
+          {placeholder}
         </option>
-        {props.options.map(option => {
+        {options.map(option => {
           return (
             <option key={option} value={option} label={option}>
               {option}
