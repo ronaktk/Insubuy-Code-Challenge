@@ -5,11 +5,14 @@ import Button from './Button';
 
 const url = "http://localhost:8080/quotes/"
 
+let res = []
+
 class Results extends Component {
 
   state = {
     quotes: [],
-    toggle: false
+    toggle: false,
+    sortByPrice: 'desc'
   }
 
   componentDidMount() {
@@ -34,14 +37,37 @@ class Results extends Component {
     })
   }
 
+  sortByPrice() {
+    if(this.state.sortByPrice === 'desc') {
+      res = this.state.quotes.sort((a,b) => b.price - a.price)
+      this.setState({
+        quotes: res,
+        sortByPrice: 'asc'
+      })
+    } else {
+      res = this.state.quotes.sort((b, a) => b.price - a.price)
+      this.setState({
+        quotes: res,
+        sortByPrice: 'desc'
+      })
+    }
+    
+  }
+
   render() {
     return(
       <Fragment>
         <div className="header">
           <Button 
+          onClick={this.sortByPrice.bind(this)}
+          title="Sort by Price"
+          />
+          
+          <Button 
           onClick={this.toggleClass.bind(this)}
           title="Toggle View"
           />
+          
         </div>
         
           <div className={this.state.toggle ? "container" : "grid"}>
