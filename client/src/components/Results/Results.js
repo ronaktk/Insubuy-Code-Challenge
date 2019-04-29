@@ -29,6 +29,7 @@ class Results extends Component {
     this.getData()
   }
 
+  /* Get Data */
   getData() {
     axios.get(url)
     .then(res => {
@@ -41,6 +42,7 @@ class Results extends Component {
     .catch(err => console.log(err))
   }
 
+  /* Toggle List/Grid View */
   toggleClass() {
     const currentState = this.state.toggle
     this.setState({
@@ -48,6 +50,7 @@ class Results extends Component {
     })
   }
 
+  /* Sort By Price filter */
   sortByPrice() {
     if(this.state.sortByPrice === 'desc') {
       res = this.state.quotes.sort((a,b) => b.price - a.price)
@@ -64,6 +67,7 @@ class Results extends Component {
     }
   }
 
+  /* Show All filter  */
   showAll() {
     this.setState({
       quotes: this.state.all,
@@ -73,6 +77,7 @@ class Results extends Component {
     })
   }
 
+  /* Sort By Name filter */
   sortByName() {
     if(this.state.sortByName === 'asc') {
       res = this.state.quotes.sort((a,b) => a.name.localeCompare(b.name))
@@ -89,6 +94,7 @@ class Results extends Component {
     }
   }
 
+  /* Find Best Sellers filter */
   findBestSellers() {
     res = this.state.quotes.filter(quote => quote.bestSellers)
     this.setState({
@@ -96,6 +102,7 @@ class Results extends Component {
     })
   }
 
+  /* Filter By Policy filter */
   filterByPolicy(e) {
     res = this.state.all.sort((b, a) => b.price - a.price)
     res = this.state.all.filter(quote => quote.price < e.target.value)
@@ -105,6 +112,7 @@ class Results extends Component {
     })
   }
 
+  /* Filter By Section filter */
   filterBySection(e) {
     res = this.state.all.filter(quote => quote.section === e.target.value)
     this.setState({
@@ -113,6 +121,7 @@ class Results extends Component {
     })
   }
 
+  /* Filter By Type filter */
   filterByType(e) {
     res = this.state.all.filter(quote => quote.type === e.target.value)
     this.setState({
@@ -121,10 +130,11 @@ class Results extends Component {
     })
   }
   
-
   render() {
     return(
       <Fragment>
+
+        {/* Form Header */}
         <div className="header">
           <Button 
           onClick={this.sortByPrice.bind(this)}
@@ -174,9 +184,9 @@ class Results extends Component {
           onClick={this.toggleClass.bind(this)}
           title="Toggle View"
           />
-          
         </div>
         
+        {/* Form Body */}
         <div className={this.state.toggle ? "container" : "grid"}>
         {
           this.state.quotes.map(quote => (

@@ -53,6 +53,7 @@ class Form extends Component {
           <form onSubmit={this.handleSubmit}>
             
             <div className="row clearfix">
+
               {/* Policy Maximum input field */}
                 <Select
                   label={"Policy Maximum"}
@@ -80,6 +81,7 @@ class Form extends Component {
               </div>
 
               <div className="row clearfix">
+              
                 {/* Travel Dates input field */}
                 <div className="col_half">
                   <label htmlFor="travel_dates">Travel Dates (mm/dd/yyyy)</label>
@@ -98,6 +100,7 @@ class Form extends Component {
                     />
                   </div>
                 </div>
+
                 {/* Citizenship input field */}
                 <Input 
                   type="text"
@@ -113,6 +116,7 @@ class Form extends Component {
               </div>
 
               <div className="row clearfix">
+
                 {/* Mailing State input field */}
                 <Input 
                   type="text"
