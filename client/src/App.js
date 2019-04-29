@@ -1,9 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Form from './components/Form'
-import Results from './components/Results'
-
-import './App.css'
+import Form from './components/Form/Form'
+import Results from './components/Results/Results'
 
 function App() {
   return (

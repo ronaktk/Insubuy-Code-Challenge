@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Select from './Select'
-import Button from './Button'
-import Input from './Input'
+import Select from '../Layout/Select'
+import Button from '../Layout/Button'
+import Input from '../Layout/Input'
 
-import './Form.css'
+import './Index.css'
 
 class Form extends Component {
 

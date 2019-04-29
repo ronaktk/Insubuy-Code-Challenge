@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Quote.css'
+import './Index.css'
 
 const Quote = (props) => {
 

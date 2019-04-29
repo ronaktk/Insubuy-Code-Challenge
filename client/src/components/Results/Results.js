@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
-import Quote from './Quote'
-import Button from './Button'
-import Select from './Select'
+import Quote from '../Quote/Quote'
+import Button from '../Layout/Button'
+import Select from '../Layout/Select'
 
 const url = "http://localhost:8080/quotes/"
 
