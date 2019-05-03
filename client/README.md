@@ -10,7 +10,7 @@
 6. `npm install`
 7. `npm start`
  
-#### Taks                            
+#### Tasks                            
 - [ ] Dates input validation
 - [x] Policy Max input validation
 - [x] Citizenship input validation
